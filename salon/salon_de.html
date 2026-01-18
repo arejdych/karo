@@ -1,0 +1,2795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Premium beauty salon offering expert skincare, microneedling, lash extensions and professional treatments in Vienna">
+    <title>KaroSkin</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'CMU Serif';
+            src: url('cmu-serif/cmunrm.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Eyesome';
+            src: url('eyesome/Eyesome-Font/Eyesome Script.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --color-primary: #1A1A1A;
+            --color-accent: #BA9667;
+            --color-accent-dark: #957852;
+            --color-light: #F8F8F8;
+            --color-text: #1A1A1A;
+            --color-text-light: #666666;
+            --color-background: #FFFFFF;
+            --color-white: #FFFFFF;
+
+            --font-display: 'DM Serif Display', serif;
+            --font-body: 'Inter', sans-serif;
+
+            --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.3s ease;
+        }
+
+        .text-accent {
+            color: var(--color-accent);
+        }
+
+        :root {
+            --color-black: #000000;
+            --color-beige: #BA9667;
+            --color-beige-dark: #957852;
+            --color-soul-black: #1A1A1A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: var(--color-background);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Animated Background */
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        /* Beauty Petals from index.html */
+        .petal {
+            position: absolute;
+            opacity: 0.27;
+            animation: float 20s infinite ease-in-out;
+            transition: opacity 0.6s ease, border-color 0.6s ease;
+        }
+
+        /* Darker golden and gray on hover behavior is applied via JS/CSS if needed, 
+           or we can just keep them static here as the user requested "similar style" */
+
+        /* Hover Effects for Petals in Hero */
+        .hero:hover .petal:nth-child(odd) {
+            border-color: var(--color-beige-dark);
+            opacity: 0.18;
+        }
+
+        .hero:hover .petal:nth-child(even) {
+            border-color: rgba(26, 26, 26, 0.4);
+            opacity: 0.15;
+        }
+
+        /* Large Petals - Left Side */
+        .petal-1 {
+            width: 128px;
+            height: 128px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 0 55% 0 55%;
+            top: 15%;
+            left: 10%;
+            transform: rotate(45deg);
+            animation-delay: 0s;
+            opacity: 0.18;
+        }
+
+        .petal-2 {
+            width: 64px;
+            height: 64px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 60% 0 60% 0;
+            top: 70%;
+            left: 20%;
+            animation-delay: -7s;
+            opacity: 0.10;
+        }
+
+        .petal-3 {
+            width: 96px;
+            height: 96px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 2% 80% 2% 80%;
+            top: 45%;
+            left: 5%;
+            animation-delay: -14s;
+            opacity: 0.14;
+        }
+
+        .petal-4 {
+            width: 56px;
+            height: 56px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 50% 0 50% 0;
+            top: 30%;
+            left: 25%;
+            animation-delay: -4s;
+            opacity: 0.072;
+        }
+
+        .petal-5 {
+            width: 88px;
+            height: 88px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 0 65% 0 65%;
+            top: 60%;
+            left: 15%;
+            transform: rotate(-30deg);
+            animation-delay: -9s;
+            opacity: 0.12;
+        }
+
+        .petal-6 {
+            width: 48px;
+            height: 48px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 70% 0 70% 0;
+            top: 80%;
+            left: 25%;
+            animation-delay: -16s;
+            opacity: 0.17;
+        }
+
+        .petal-7 {
+            width: 104px;
+            height: 104px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 0 60% 2% 60%;
+            top: 20%;
+            left: 18%;
+            animation-delay: -11s;
+            opacity: 0.11;
+        }
+
+        .petal-8 {
+            width: 72px;
+            height: 72px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 60% 0 60% 2%;
+            top: 85%;
+            left: 8%;
+            animation-delay: -19s;
+            opacity: 0.06;
+        }
+
+        .petal-9 {
+            width: 144px;
+            height: 144px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 0 75% 0 75%;
+            top: 5%;
+            left: 2%;
+            animation-delay: -2s;
+            opacity: 0.19;
+        }
+
+        .petal-10 {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 80% 2% 80% 2%;
+            bottom: 20%;
+            left: 30%;
+            animation-delay: -14s;
+            opacity: 0.13;
+        }
+
+        .petal-11 {
+            width: 176px;
+            height: 176px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 2% 90% 2% 60%;
+            top: 50%;
+            left: 12%;
+            animation-delay: -5s;
+            opacity: 0.05;
+        }
+
+        .petal-12 {
+            width: 80px;
+            height: 80px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 65% 0 65% 0;
+            top: 10%;
+            left: 35%;
+            animation-delay: -8s;
+            opacity: 0.16;
+        }
+
+        .petal-13 {
+            width: 56px;
+            height: 56px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 0 50% 0 50%;
+            bottom: 15%;
+            left: 5%;
+            animation-delay: -12s;
+            opacity: 0.08;
+        }
+
+        .petal-14 {
+            width: 120px;
+            height: 120px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 50% 0 50% 0;
+            top: 35%;
+            left: 3%;
+            animation-delay: -17s;
+            opacity: 0.11;
+        }
+
+        .petal-15 {
+            width: 88px;
+            height: 88px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 0 60% 0 60%;
+            bottom: 8%;
+            left: 25%;
+            animation-delay: -1s;
+            opacity: 0.18;
+        }
+
+        /* Large Petals - Right Side */
+        .petal-16 {
+            width: 160px;
+            height: 160px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 80% 0 50% 0;
+            top: 15%;
+            right: 15%;
+            animation-delay: -6s;
+            opacity: 0.06;
+        }
+
+        .petal-17 {
+            width: 48px;
+            height: 48px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 0 90% 0 60%;
+            top: 85%;
+            right: 25%;
+            animation-delay: -13s;
+            opacity: 0.14;
+        }
+
+        .petal-18 {
+            width: 112px;
+            height: 112px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 75% 0 75% 0;
+            bottom: 30%;
+            right: 5%;
+            animation-delay: -9s;
+            opacity: 0.096;
+        }
+
+        .petal-19 {
+            width: 72px;
+            height: 72px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 0 55% 0 55%;
+            top: 40%;
+            right: 30%;
+            animation-delay: -4s;
+            opacity: 0.17;
+        }
+
+        .petal-20 {
+            width: 136px;
+            height: 136px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 65% 2% 65% 2%;
+            top: 65%;
+            right: 10%;
+            animation-delay: -15s;
+            opacity: 0.07;
+        }
+
+        .petal-21 {
+            width: 192px;
+            height: 192px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 0 80% 0 80%;
+            top: 55%;
+            right: 20%;
+            animation-delay: -8s;
+            opacity: 0.05;
+        }
+
+        .petal-22 {
+            width: 64px;
+            height: 64px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 50% 0 70% 0;
+            bottom: 40%;
+            right: 35%;
+            animation-delay: -3s;
+            opacity: 0.12;
+        }
+
+        .petal-23 {
+            width: 152px;
+            height: 152px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 0 70% 10% 70%;
+            top: 25%;
+            right: 5%;
+            animation-delay: -11s;
+            opacity: 0.08;
+        }
+
+        .petal-24 {
+            width: 48px;
+            height: 48px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 80% 0 80% 0;
+            bottom: 50%;
+            right: 40%;
+            animation-delay: -6s;
+            opacity: 0.16;
+        }
+
+        .petal-25 {
+            width: 96px;
+            height: 96px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 0 55% 5% 55%;
+            top: 75%;
+            right: 12%;
+            animation-delay: -18s;
+            opacity: 0.11;
+        }
+
+        .petal-26 {
+            width: 224px;
+            height: 224px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 90% 0 60% 0;
+            top: 5%;
+            right: 28%;
+            animation-delay: -2s;
+            opacity: 0.04;
+        }
+
+        .petal-27 {
+            width: 80px;
+            height: 80px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 0 50% 0 50%;
+            bottom: 15%;
+            right: 18%;
+            animation-delay: -14s;
+            opacity: 0.13;
+        }
+
+        .petal-28 {
+            width: 128px;
+            height: 128px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 70% 0 70% 2%;
+            top: 30%;
+            right: 22%;
+            animation-delay: -9s;
+            opacity: 0.07;
+        }
+
+        .petal-29 {
+            width: 56px;
+            height: 56px;
+            background: transparent;
+            border: 1px solid var(--color-beige);
+            border-radius: 0 85% 0 55%;
+            bottom: 25%;
+            right: 32%;
+            animation-delay: -5s;
+            opacity: 0.14;
+        }
+
+        .petal-30 {
+            width: 200px;
+            height: 200px;
+            background: transparent;
+            border: 1px solid var(--color-black);
+            border-radius: 55% 0 55% 0;
+            bottom: 10%;
+            right: 2%;
+            animation-delay: -12s;
+            opacity: 0.05;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(30px, -30px) rotate(5deg);
+            }
+
+            50% {
+                transform: translate(-20px, 20px) rotate(-5deg);
+            }
+
+            75% {
+                transform: translate(20px, 30px) rotate(3deg);
+            }
+        }
+
+        /* Bokeh light particles */
+        .bokeh {
+            position: absolute;
+            border-radius: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(186, 150, 103, 0.5) 40%, transparent 70%);
+            filter: blur(8px);
+            animation: floatBokeh 25s infinite ease-in-out;
+            opacity: 0.36;
+        }
+
+        .bokeh-1 {
+            width: 120px;
+            height: 120px;
+            top: 20%;
+            left: 15%;
+            animation-delay: -2s;
+        }
+
+        .bokeh-2 {
+            width: 80px;
+            height: 80px;
+            top: 65%;
+            right: 20%;
+            animation-delay: -8s;
+        }
+
+        .bokeh-3 {
+            width: 60px;
+            height: 60px;
+            top: 45%;
+            left: 25%;
+            animation-delay: -12s;
+        }
+
+        .bokeh-4 {
+            width: 100px;
+            height: 100px;
+            top: 75%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+
+        .bokeh-5 {
+            width: 70px;
+            height: 70px;
+            top: 35%;
+            right: 35%;
+            animation-delay: -15s;
+        }
+
+        .bokeh-6 {
+            width: 90px;
+            height: 90px;
+            bottom: 20%;
+            left: 40%;
+            animation-delay: -10s;
+        }
+
+        @keyframes floatBokeh {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.3;
+            }
+
+            25% {
+                transform: translate(40px, -40px) scale(1.1);
+                opacity: 0.4;
+            }
+
+            50% {
+                transform: translate(-30px, 30px) scale(0.9);
+                opacity: 0.25;
+            }
+
+            75% {
+                transform: translate(30px, 40px) scale(1.05);
+                opacity: 0.35;
+            }
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 0;
+            box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8),
+                0 0 20px 4px rgba(186, 150, 103, 0.72);
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        .sparkle-1 {
+            top: 15%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .sparkle-2 {
+            top: 25%;
+            right: 15%;
+            animation-delay: -0.5s;
+        }
+
+        .sparkle-3 {
+            top: 50%;
+            left: 10%;
+            animation-delay: -1s;
+        }
+
+        .sparkle-4 {
+            top: 70%;
+            right: 25%;
+            animation-delay: -1.5s;
+        }
+
+        .sparkle-5 {
+            top: 35%;
+            left: 40%;
+            animation-delay: -2s;
+        }
+
+        .sparkle-6 {
+            top: 60%;
+            right: 40%;
+            animation-delay: -2.5s;
+        }
+
+        .sparkle-7 {
+            top: 80%;
+            left: 30%;
+            animation-delay: -1.2s;
+        }
+
+        .sparkle-8 {
+            top: 40%;
+            right: 10%;
+            animation-delay: -0.8s;
+        }
+
+        .sparkle-9 {
+            top: 55%;
+            left: 50%;
+            animation-delay: -1.8s;
+        }
+
+        .sparkle-10 {
+            top: 20%;
+            right: 30%;
+            animation-delay: -0.3s;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header/Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(253, 255, 254, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 24px 0;
+            transition: var(--transition-fast);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--color-primary);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: var(--transition-fast);
+        }
+
+        .logo:hover {
+            color: var(--color-accent);
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav a {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-decoration: none;
+            transition: var(--transition-fast);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            position: relative;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--color-primary);
+            transition: var(--transition-fast);
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--color-primary);
+            margin: 5px 0;
+            transition: var(--transition-fast);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            text-align: center;
+            margin: 0 auto;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1.1;
+            color: var(--color-text);
+            margin-bottom: 32px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 1.2s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            line-height: 1.7;
+            color: var(--color-text-light);
+            margin: 0 auto 48px auto;
+            max-width: 900px;
+            animation: fadeInUp 1.2s ease-out 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1.2s ease-out 0.6s both;
+        }
+
+        .btn {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 0;
+            text-decoration: none;
+            transition: var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            border: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 16px 48px rgba(26, 26, 26, 0.4);
+        }
+
+
+
+        .btn-secondary {
+            background: transparent;
+            color: #000000;
+            border: 1px solid #000000;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e5e5;
+            color: #000000;
+            border-color: var(--color-primary);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-back {
+            position: fixed;
+            top: 130px;
+            left: 24px;
+            z-index: 99;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 0;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--color-primary);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            transition: var(--transition-fast);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-back:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+            transform: translateX(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Visibility Fix for Mobile */
+        .services.fade-in {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        @media (min-width: 769px) {
+            .services.fade-in {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+
+        .section-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.2;
+            color: var(--color-text);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--color-text-light);
+        }
+
+        /* Treatments List */
+        .treatments-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .treatment-category {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            color: var(--color-primary);
+            margin-top: 40px;
+            margin-bottom: 16px;
+            font-weight: 400;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        .treatment-category:first-child {
+            margin-top: 0;
+        }
+
+        .treatment-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--color-white);
+            padding: 12px 20px;
+            border-radius: 0;
+            border: 1px solid rgba(26, 26, 26, 0.1);
+            margin-bottom: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .treatment-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 5px 20px rgba(26, 26, 26, 0.1);
+            border-color: var(--color-accent);
+        }
+
+        .treatment-info {
+            flex: 1;
+        }
+
+        .treatment-name {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            color: var(--color-text);
+            margin-bottom: 2px;
+            font-weight: 500;
+        }
+
+        .treatment-name-break {
+            display: inline;
+        }
+
+        @media (max-width: 768px) {
+            .treatment-name-break {
+                display: block;
+            }
+        }
+
+        .treatment-duration {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+
+
+        .treatment-booking {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .treatment-price {
+            font-family: var(--font-body);
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            font-weight: 600;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .currency-small {
+            font-size: 0.6em;
+            margin-left: 4px;
+        }
+
+        .btn-book {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 0;
+            background: transparent;
+            color: var(--color-primary);
+            border: 1.5px solid var(--color-primary);
+            text-decoration: none;
+            transition: var(--transition-fast);
+            white-space: nowrap;
+            letter-spacing: 0.01em;
+        }
+
+        .btn-book:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(26, 26, 26, 0.2);
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: var(--color-light);
+        }
+
+        /* Gallery Carousel */
+        .gallery {
+            background: var(--color-background);
+            overflow: hidden;
+            padding: 100px 0;
+        }
+
+        .gallery .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+            padding: 0 24px;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .gallery-track-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 40px 0;
+            margin: -40px 0;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.5s ease-in-out;
+            padding: 0 calc((100vw - 1200px) / 2);
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            height: 550px;
+            width: auto;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(26, 26, 26, 0.25);
+            transition: var(--transition-smooth);
+            background: transparent;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 50px rgba(26, 26, 26, 0.25);
+        }
+
+        .gallery-item img {
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .gallery-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: var(--transition-fast);
+            box-shadow: 0 4px 20px rgba(26, 26, 26, 0.2);
+        }
+
+        .gallery-arrow:hover {
+            background: var(--color-primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-arrow:hover svg {
+            color: var(--color-white);
+        }
+
+        .gallery-arrow svg {
+            width: 28px;
+            height: 28px;
+            color: var(--color-primary);
+            transition: var(--transition-fast);
+        }
+
+        .gallery-arrow-left {
+            left: 24px;
+        }
+
+        .gallery-arrow-right {
+            right: 24px;
+        }
+
+        .gallery-arrow:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .gallery-arrow:disabled:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-50%);
+        }
+
+        .gallery-arrow:disabled:hover svg {
+            color: var(--color-primary);
+        }
+
+        /* Location Section */
+        .location {
+            background: var(--color-light);
+        }
+
+        .location-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .location .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .location-map-container {
+            position: relative;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(26, 26, 26, 0.2);
+        }
+
+        .location-map {
+            width: 100%;
+            height: 600px;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .location-info-overlay {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            background: var(--color-white);
+            border-radius: 0;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 450px;
+            backdrop-filter: blur(10px);
+        }
+
+        .location-details {
+            width: 100%;
+        }
+
+        .location-name {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .location-address,
+        .location-hours {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .location-hours {
+            margin-bottom: 0;
+        }
+
+        .location-address i,
+        .location-hours i {
+            color: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 0;
+            line-height: 1;
+        }
+
+        .location-address div p,
+        .location-hours p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--color-text);
+            margin: 0;
+            font-weight: 400;
+            font-family: var(--font-body);
+        }
+
+        .location-address div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--color-white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(26, 26, 26, 0.2);
+            height: auto;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            padding: 40px 0;
+        }
+
+        .about-title {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .about-description {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--color-text);
+            margin-bottom: 48px;
+        }
+
+        .certificates {
+            background: var(--color-light);
+            padding: 40px;
+            border-radius: 0;
+        }
+
+        .certificates-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-text);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .certificate-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--color-white);
+            border-radius: 0;
+            transition: var(--transition-fast);
+        }
+
+        .certificate-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(26, 26, 26, 0.25);
+        }
+
+        .certificate-item i {
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        .certificate-item span {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-text);
+            line-height: 1.4;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            margin-top: 60px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: var(--color-white);
+        }
+
+        .feature h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-text);
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .feature p {
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--color-white);
+        }
+
+        .testimonials-carousel {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .testimonial-content {
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .testimonial-text {
+            font-size: 1.375rem;
+            line-height: 1.8;
+            color: var(--color-text);
+            font-style: italic;
+            margin-bottom: 32px;
+        }
+
+        .testimonial-author {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            color: var(--color-primary);
+            font-weight: 400;
+        }
+
+        .testimonial-role {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-top: 4px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 0;
+            background: rgba(26, 26, 26, 0.2);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .dot.active {
+            background: var(--color-primary);
+            width: 32px;
+            border-radius: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--color-light) 0%, var(--color-white) 100%);
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .contact-intro h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--color-text);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .contact-intro p {
+            font-size: 1.125rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+
+        .contact-form {
+            background: var(--color-white);
+            padding: 48px;
+            border-radius: 0;
+            box-shadow: 0 20px 60px rgba(26, 26, 26, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid rgba(26, 26, 26, 0.25);
+            border-radius: 0;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-text);
+            transition: var(--transition-fast);
+            background: var(--color-white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 4px rgba(26, 26, 26, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px 40px;
+            background: var(--color-accent);
+            color: var(--color-white);
+            border: none;
+            border-radius: 0;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            letter-spacing: 0.02em;
+        }
+
+        .submit-btn:hover {
+            background: #9C7A4F;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(186, 150, 103, 0.3);
+        }
+
+        .contact-reassurance {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        /* Cross Promotion */
+        .cross-promotion {
+            background: var(--color-light);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cross-promotion-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cross-promotion h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--color-text);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .cross-promotion p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--color-text-light);
+            margin-bottom: 32px;
+        }
+
+        .cross-promotion .btn {
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-text);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition-fast);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav {
+                position: fixed;
+                top: 88px;
+                right: -100%;
+                width: 100%;
+                max-width: 300px;
+                height: calc(100vh - 88px);
+                background: var(--color-white);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 40px 24px;
+                transition: right 0.3s ease;
+                box-shadow: -4px 0 20px rgba(26, 26, 26, 0.1);
+                gap: 24px;
+            }
+
+            .nav.active {
+                right: 0;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+                line-height: 1.2;
+                margin-bottom: 20px;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 32px;
+                padding: 0 10px;
+            }
+
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 14px 24px;
+                justify-content: center;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .treatment-category {
+                font-size: 1.5rem;
+                margin-top: 40px;
+            }
+
+            .treatment-item {
+                flex-direction: row;
+                align-items: center;
+                padding: 12px 16px;
+                gap: 12px;
+            }
+
+            .treatment-name {
+                font-size: 0.95rem;
+            }
+
+            .treatment-duration {
+                font-size: 0.85rem;
+            }
+
+            .treatment-booking {
+                width: auto;
+                justify-content: flex-end;
+                margin-top: 0;
+                gap: 12px;
+            }
+
+            .treatment-price {
+                font-size: 1.1rem;
+                min-width: auto;
+            }
+
+            .btn-book {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .gallery-track {
+                padding: 0 24px;
+            }
+
+            .gallery-item {
+                flex: 0 0 auto;
+                height: 400px;
+            }
+
+            .gallery-arrow {
+                width: 44px;
+                height: 44px;
+            }
+
+            .gallery-arrow svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .gallery-arrow-left {
+                left: 8px;
+            }
+
+            .gallery-arrow-right {
+                right: 8px;
+            }
+
+            .location-map {
+                height: 400px;
+            }
+
+            .location-info-overlay {
+                position: static;
+                margin-top: -60px;
+                margin-left: 16px;
+                margin-right: 16px;
+                max-width: none;
+                padding: 32px 24px;
+                border-radius: 0;
+            }
+
+            .location-name {
+                font-size: 1.75rem;
+                margin-bottom: 20px;
+            }
+
+            .location-address,
+            .location-hours {
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+
+            .location-address div p,
+            .location-hours p {
+                font-size: 1rem;
+                font-weight: 400;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .about-image {
+                height: auto;
+            }
+
+            .about-text {
+                padding: 0;
+            }
+
+            .about-title {
+                font-size: 2rem;
+            }
+
+            .about-description {
+                font-size: 1.125rem;
+            }
+
+            .certificates {
+                padding: 32px 24px;
+            }
+
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 32px 24px;
+            }
+
+            .testimonial-text {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#home" class="logo"><span
+                        style="font-family: 'Eyesome', serif; font-weight: bold; font-size: 1.43em;">Karo</span><span
+                        style="font-family: 'CMU Serif', serif;">SKIN</span></a>
+            <nav class="nav" id="nav">
+                <a href="#home">Home</a>
+                <a href="#services">Behandlungen</a>
+                <a href="#gallery">Galerie</a>
+                <a href="#location">Standort</a>
+                <a href="#about">Über mich</a>
+                <a href="#testimonials">Bewertungen</a>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <a href="index.html" class="btn-back">← Zurück</a>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="petal petal-1"></div>
+            <div class="petal petal-2"></div>
+            <div class="petal petal-3"></div>
+            <div class="petal petal-4"></div>
+            <div class="petal petal-5"></div>
+            <div class="petal petal-6"></div>
+            <div class="petal petal-7"></div>
+            <div class="petal petal-8"></div>
+            <div class="petal petal-9"></div>
+            <div class="petal petal-10"></div>
+            <div class="petal petal-11"></div>
+            <div class="petal petal-12"></div>
+            <div class="petal petal-13"></div>
+            <div class="petal petal-14"></div>
+            <div class="petal petal-15"></div>
+            <div class="petal petal-16"></div>
+            <div class="petal petal-17"></div>
+            <div class="petal petal-18"></div>
+            <div class="petal petal-19"></div>
+            <div class="petal petal-20"></div>
+            <div class="petal petal-21"></div>
+            <div class="petal petal-22"></div>
+            <div class="petal petal-23"></div>
+            <div class="petal petal-24"></div>
+            <div class="petal petal-25"></div>
+            <div class="petal petal-26"></div>
+            <div class="petal petal-27"></div>
+            <div class="petal petal-28"></div>
+            <div class="petal petal-29"></div>
+            <div class="petal petal-30"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1>Schönheit, Ruhe & Pflege – <br> <span class="text-accent">im Herzen Wiens.</span></h1>
+                <p class="hero-description">
+                    Atmosphäre, Kompetenz und Wohlfühlmomente stehen im Mittelpunkt <br> - ideal für alle, die
+                    Hautpflege
+                    und Entspannung verbinden wollen.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#services" class="btn btn-primary">
+                        Behandlungen ansehen
+                    </a>
+                    <a href="#gallery" class="btn btn-secondary">
+                        Galerie ansehen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services fade-in">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Behandlungen</h2>
+                <p class="section-description">
+                    Egal ob Gesichtspflege, Microneedling, Lash/Brow-Behandlungen oder individuelle Pflege: Hier wird
+                    auf deinen Hauttyp und deine Wünsche mit viel Liebe zum Detail eingegangen.
+                </p>
+            </div>
+
+            <div class="treatments-list">
+                <!-- Gesichtsbehandlungen -->
+                <h3 class="treatment-category">Gesichtsbehandlungen</h3>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Klassisch</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>1
+                            Std.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">79<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Reinigung</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>1
+                            Std. 15 Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">87<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Deluxe</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>2
+                            Std.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">135<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Erneuerung mit Fruchtsäure</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>1
+                            Std. 30 Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">90<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Intensive <span class="treatment-name-break">Feuchtigkeit</span></h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>1
+                            Std. 30 Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">75<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Ultraschall</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>1
+                            Std. 15 Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">ab 71,25<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Peeling/Fruchtsäure <span class="treatment-name-break">Beratung</span></h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>20
+                            Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">ab 0<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Augenarea Behandlung</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>35
+                            Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">40<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Männerkosmetik Klassische Behandlung</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>1
+                            Std.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">69<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Beratungsgespräch</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>20
+                            Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">ab 0<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Hautanalyse / Beratung / Pflegevorschläge</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>30
+                            Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">20<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <!-- Microneedling -->
+                <h3 class="treatment-category">Microneedling</h3>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Gesichtsbehandlung</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>1
+                            Std. - 1 Std. 30 Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">ab 75<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Gesicht/Hals</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>1
+                            Std. 30 Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">100<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Dekollete</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>1
+                            Std.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">60<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Beratung</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>25
+                            Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">ab 0<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <!-- Wimpernverlängerung -->
+                <h3 class="treatment-category">Wimpernverlängerung</h3>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">1:1 Technik</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>2
+                            Std.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">95<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Auffüllen</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>1
+                            Std. 15 Min. - 1 Std. 45 Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">ab 60<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Entfernen</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>30
+                            Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">25<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Beratungsgespräch</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>20
+                            Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">ab 0<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <!-- Massage -->
+                <h3 class="treatment-category">Massage</h3>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Gesichtsmassage</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>15
+                            Min. - 30 Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">ab 25<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Handmassage</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>20
+                            Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">35<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+
+                <div class="treatment-item">
+                    <div class="treatment-info">
+                        <h3 class="treatment-name">Kopfmassage</h3>
+                        <span class="treatment-duration"><i data-lucide="clock"
+                                style="width: 14px; height: 14px; margin-right: 6px; transform: translateY(1px); color: #999999; display: inline-block;"></i>25
+                            Min.</span>
+                    </div>
+                    <div class="treatment-booking">
+                        <span class="treatment-price">25<span class="currency-small">EUR</span></span>
+                        <a href="https://www.treatwell.at/ort/karokosmetik/" class="btn-book" target="_blank"
+                            rel="noopener noreferrer">Buchen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery fade-in">
+        <div class="section-header">
+            <h2 class="section-title">Galerie</h2>
+            <p class="section-description">
+                Entdecke unsere Arbeit und lass dich von unseren Behandlungsergebnissen inspirieren.
+            </p>
+        </div>
+
+        <div class="gallery-container">
+            <button class="gallery-arrow gallery-arrow-left" aria-label="Previous images">
+                <i data-lucide="chevron-left"></i>
+            </button>
+
+            <div class="gallery-track-wrapper">
+                <div class="gallery-track">
+                    <div class="gallery-item">
+                        <img src="salon2.jpg" alt="KaroSkin Salon Ansicht 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="salon1.jpeg" alt="KaroSkin Salon Ansicht 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="salon3.jpeg" alt="KaroSkin Salon Ansicht 3">
+                    </div>
+                </div>
+            </div>
+
+            <button class="gallery-arrow gallery-arrow-right" aria-label="Next images">
+                <i data-lucide="chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Where to Find Us Section -->
+    <section id="location" class="location fade-in">
+        <div class="location-wrapper">
+            <div class="section-header">
+                <h2 class="section-title">Wo du uns findest</h2>
+                <p class="section-description">
+                    Besuche uns im Herzen von Wien – wir freuen uns auf dich!
+                </p>
+            </div>
+
+            <div class="location-map-container">
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps?q=48.210935,16.375421&z=15&output=embed" width="100%"
+                        height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <div class="location-info-overlay">
+                    <div class="location-details">
+                        <h3 class="location-name"><span
+                                style="font-family: 'Eyesome', serif; font-weight: bold; font-size: 1.43em;">Karo</span><span
+                                style="font-family: 'CMU Serif', serif;">SKIN</span></h3>
+                        <div class="location-address">
+                            <i data-lucide="map-pin"></i>
+                            <div>
+                                <p>Postgasse 11/16</p>
+                                <p>1010 Wien</p>
+                            </div>
+                        </div>
+                        <div class="location-hours">
+                            <i data-lucide="clock"></i>
+                            <p>Mo-Fr 9:00 - 19:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about fade-in">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="karo_salon.jpg" alt="Karolina - KaroSkin">
+                </div>
+
+                <div class="about-text">
+                    <h2 class="about-title">Über mich</h2>
+                    <p class="about-description">
+                        Hinter KaroSkin steht Karolina — eine leidenschaftliche Kosmetikerin mit Herz und viel
+                        Erfahrung rund um Skin Care. Mit Fingerspitzengefühl, fachlichem Know-how und persönlicher
+                        Betreuung sorgt sie dafür, dass du dich rundum wohl fühlst und deine Haut sichtbar aufblüht.
+                    </p>
+
+                    <div class="certificates">
+                        <h3 class="certificates-title">Zertifikate & Qualifikationen</h3>
+                        <div class="certificates-grid">
+                            <div class="certificate-item">
+                                <i data-lucide="award"></i>
+                                <span>Geprüfte Kosmetikerin</span>
+                            </div>
+                            <div class="certificate-item">
+                                <i data-lucide="graduation-cap"></i>
+                                <span>Microneedling Spezialistin</span>
+                            </div>
+                            <div class="certificate-item">
+                                <i data-lucide="star"></i>
+                                <span>Wimpernverlängerung Expert</span>
+                            </div>
+                            <div class="certificate-item">
+                                <i data-lucide="shield-check"></i>
+                                <span>Hygiene & Sicherheit</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials fade-in">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Kundenstimmen</div>
+                <h2 class="section-title">Was unsere Kunden sagen</h2>
+            </div>
+
+            <div class="testimonials-carousel">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            "War bis jetzt meine beste Erfahrung mit Gesichtsbehandlungen! Karo ist super lieb und
+                            kompetent. Sie geht auf die individuellen Bedürfnisse deiner Haut ein und gibt hilfreiche
+                            Tipps für zuhause. Das Preis-Leistungsverhältnis ist wirklich top!"
+                        </p>
+                        <div class="testimonial-author">Angelika</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            "Wie immer super! Die Karo weiß immer genau was mein Gesicht braucht. Neben der tollen
+                            Behandlung, freue ich mich immer wieder auf das tolle Gespräch und deine Ratschläge!! Love
+                            youu!"
+                        </p>
+                        <div class="testimonial-author">Aleksandra</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            "Wie immer hat Karo einen super Job gemacht. Ich fühle mich während der Behandlung sehr wohl
+                            bei ihr und perfekt umsorgt. Obwohl das Microneedling generell nicht so angenehm ist, kann
+                            man sich trotzdem währenddessen entspannen. Ich komme wieder!"
+                        </p>
+                        <div class="testimonial-author">Michaela</div>
+                    </div>
+                </div>
+
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross Promotion -->
+    <section class="cross-promotion fade-in">
+        <div class="container">
+            <div class="cross-promotion-content">
+                <h2>Bereit für mehr?</h2>
+                <p>
+                    Entdecke auch <span style="font-family: 'Eyesome', serif; font-size: 1.32em;">Karo</span><span style="font-family: 'CMU Serif', serif;">SOUL</span> – professionelles Coaching für alle, die bereit sind, ihr volles Potenzial zu entfalten und ihre Ziele zu erreichen.
+                </p>
+                <a href="coaching_en.html" class="btn btn-primary">Coaching entdecken</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 KaroSkin. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#terms">AGB & Impressum</a>
+                <a href="#privacy">Datenschutzerklärung</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const nav = document.getElementById('nav');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.6)';
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.boxShadow = '0 4px 30px rgba(26, 26, 26, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+                header.style.boxShadow = 'none';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add subtle parallax effect to background shapes
+        let ticking = false;
+
+        function updateShapePositions(scrollPos) {
+            const shapes = document.querySelectorAll('.shape');
+            shapes.forEach((shape, index) => {
+                const speed = 0.2 + (index * 0.1);
+                const yPos = -(scrollPos * speed);
+                shape.style.transform = `translateY(${yPos}px)`;
+            });
+        }
+
+        window.addEventListener('scroll', function () {
+            const scrollPos = window.pageYOffset;
+
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    updateShapePositions(scrollPos);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Initialize Lucide icons
+        function initializeLucideIcons() {
+            console.log('Attempting to initialize Lucide...');
+            console.log('Lucide available?', typeof lucide !== 'undefined');
+
+            // Initialize ALL Lucide icons on the page
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                try {
+                    lucide.createIcons();
+                    console.log('Lucide icons initialized successfully');
+                } catch (error) {
+                    console.error('Error initializing Lucide icons:', error);
+                }
+            } else {
+                console.error('Lucide library not loaded properly');
+                console.log('Window.lucide:', window.lucide);
+            }
+        }
+
+        // Try multiple approaches to ensure Lucide loads
+        if (document.readyState === 'complete') {
+            setTimeout(initializeLucideIcons, 300);
+        } else {
+            window.addEventListener('load', function () {
+                setTimeout(initializeLucideIcons, 300);
+            });
+        }
+
+        // Gallery Carousel - Horizontal Scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const galleryTrack = document.querySelector('.gallery-track');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const galleryArrowLeft = document.querySelector('.gallery-arrow-left');
+            const galleryArrowRight = document.querySelector('.gallery-arrow-right');
+
+            if (!galleryTrack || !galleryItems.length) return;
+
+            let currentIndex = 0;
+            const gap = 24; // Gap between items in pixels
+
+            // Wait for images to load before initializing
+            let imagesLoaded = 0;
+            const images = galleryTrack.querySelectorAll('img');
+
+            function initGallery() {
+                updateGallery();
+            }
+
+            if (images.length > 0) {
+                images.forEach(img => {
+                    if (img.complete) {
+                        imagesLoaded++;
+                    } else {
+                        img.addEventListener('load', () => {
+                            imagesLoaded++;
+                            if (imagesLoaded === images.length) {
+                                initGallery();
+                            }
+                        });
+                    }
+                });
+                if (imagesLoaded === images.length) {
+                    initGallery();
+                }
+            } else {
+                initGallery();
+            }
+
+            function updateGallery() {
+                let translateX = 0;
+                for (let i = 0; i < currentIndex; i++) {
+                    translateX -= (galleryItems[i].offsetWidth + gap);
+                }
+                galleryTrack.style.transform = `translateX(${translateX}px)`;
+
+                // Update button states
+                if (galleryArrowLeft) galleryArrowLeft.disabled = currentIndex === 0;
+
+                // For the right arrow, we check if the rest of the track fits in view
+                const containerWidth = galleryTrack.parentElement.offsetWidth;
+                const totalWidth = Array.from(galleryItems).reduce((sum, item) => sum + item.offsetWidth + gap, 0) - gap;
+                const currentOffset = Math.abs(translateX);
+                if (galleryArrowRight) galleryArrowRight.disabled = (totalWidth - currentOffset) <= containerWidth;
+            }
+
+            function nextSlide() {
+                const containerWidth = galleryTrack.parentElement.offsetWidth;
+                const totalWidth = Array.from(galleryItems).reduce((sum, item) => sum + item.offsetWidth + gap, 0) - gap;
+                let currentOffset = 0;
+                for (let i = 0; i <= currentIndex; i++) {
+                    currentOffset += (galleryItems[i].offsetWidth + gap);
+                }
+
+                if (totalWidth - currentOffset + gap > 0) {
+                    currentIndex++;
+                    updateGallery();
+                }
+            }
+
+            function prevSlide() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateGallery();
+                }
+            }
+
+            // Arrow click handlers
+            if (galleryArrowLeft) {
+                galleryArrowLeft.addEventListener('click', prevSlide);
+                galleryArrowLeft.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    prevSlide();
+                });
+            }
+
+            if (galleryArrowRight) {
+                galleryArrowRight.addEventListener('click', nextSlide);
+                galleryArrowRight.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    nextSlide();
+                });
+            }
+
+            // Touch swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            galleryTrack.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            galleryTrack.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) {
+                    nextSlide();
+                }
+                if (touchEndX > touchStartX + 50) {
+                    prevSlide();
+                }
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                }
+            });
+
+            // Update on window resize
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    currentIndex = 0; // Reset to start on resize
+                    updateGallery();
+                }, 250);
+            });
+
+            // Initial update
+            updateGallery();
+        });
+
+        // Testimonials Carousel
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.carousel-dots .dot');
+            let currentSlide = 0;
+            const autoPlayInterval = 5000; // 5 seconds
+            let autoPlayTimer;
+
+            function showSlide(index) {
+                // Remove active class from all slides and dots
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+
+                // Add active class to current slide and dot
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            function startAutoPlay() {
+                autoPlayTimer = setInterval(nextSlide, autoPlayInterval);
+            }
+
+            function stopAutoPlay() {
+                clearInterval(autoPlayTimer);
+            }
+
+            // Add click handlers to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function () {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                    stopAutoPlay();
+                    startAutoPlay(); // Restart autoplay after manual selection
+                });
+            });
+
+            // Start autoplay
+            startAutoPlay();
+
+            // Pause on hover
+            const carousel = document.querySelector('.testimonials-carousel');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', stopAutoPlay);
+                carousel.addEventListener('mouseleave', startAutoPlay);
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+
+</html>
