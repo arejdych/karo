@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KaroSkin & KaroSoul - Beauty Treatments and Professional Coaching Services">
-    <title>Karo Skin&Soul</title>
+    <meta name="description" content="KaroSkin & KaroSoul - Schönheitsbehandlungen und professionelles Coaching">
+    <title>Karo Soul&Skin</title>
 
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
@@ -93,11 +93,11 @@
         }
 
         .beauty-section:hover~.center-ampersand {
-            left: 56.52%;
+            left: 43.48%;
         }
 
         .coaching-section:hover~.center-ampersand {
-            left: 43.48%;
+            left: 56.52%;
         }
 
         .split-section {
@@ -144,7 +144,7 @@
             content: '';
             position: absolute;
             top: 0;
-            right: 0;
+            left: 0;
             width: 1px;
             height: 100%;
             background: rgba(26, 26, 26, 0.1);
@@ -1078,8 +1078,42 @@
                 border-right: none;
             }
 
+            .beauty-section::after {
+                display: none;
+            }
+
+            .beauty-section:hover ~ .center-ampersand,
+            .coaching-section:hover ~ .center-ampersand {
+                left: 50%;
+                top: 50%;
+            }
+
+            .coaching-section:hover ~ .center-ampersand {
+                top: 53.49%;
+            }
+
+            .beauty-section:hover ~ .center-ampersand {
+                top: 46.51%;
+            }
+
+            .center-ampersand {
+                transition: top 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
             .beauty-section {
-                border-bottom: 1px solid rgba(107, 70, 193, 0.1);
+            }
+
+            .coaching-section {
+                border-bottom: 1px solid rgba(26, 26, 26, 0.15);
+            }
+
+            .coaching-section:hover {
+                border-bottom: 1px solid rgba(26, 26, 26, 0.15);
+                transform: none;
+            }
+
+            .beauty-section:hover {
+                transform: none;
             }
 
             .split-section:hover {
@@ -1111,59 +1145,6 @@
 
 <body>
     <div class="container">
-        <a href="salon_de.html" class="split-section beauty-section">
-            <div class="background-shapes">
-                <div class="petal petal-1"></div>
-                <div class="petal petal-2"></div>
-                <div class="petal petal-3"></div>
-                <div class="petal petal-4"></div>
-                <div class="petal petal-5"></div>
-                <div class="petal petal-6"></div>
-                <div class="petal petal-7"></div>
-                <div class="petal petal-8"></div>
-                <div class="petal petal-9"></div>
-                <div class="petal petal-10"></div>
-                <div class="petal petal-11"></div>
-                <div class="petal petal-12"></div>
-                <div class="petal petal-13"></div>
-                <div class="petal petal-14"></div>
-                <div class="petal petal-15"></div>
-                <div class="petal petal-16"></div>
-                <div class="petal petal-17"></div>
-                <div class="petal petal-18"></div>
-                <div class="petal petal-19"></div>
-                <div class="petal petal-20"></div>
-                <div class="petal petal-21"></div>
-                <div class="petal petal-22"></div>
-                <div class="petal petal-23"></div>
-                <div class="petal petal-24"></div>
-                <div class="petal petal-25"></div>
-                <div class="petal petal-26"></div>
-                <div class="petal petal-27"></div>
-                <div class="petal petal-28"></div>
-                <div class="petal petal-29"></div>
-                <div class="petal petal-30"></div>
-            </div>
-
-            <div class="content">
-
-
-                <h1 class="brand-name"><span
-                        style="font-family: 'Eyesome', serif; font-weight: bold; font-size: 1.43em;">Karo</span><span
-                        style="font-family: 'CMU Serif', serif;">SKIN</span></h1>
-                <p class="description">Premium beauty treatments for glowing skin and natural beauty</p>
-
-                <span class="cta">
-                    Explore Treatments
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                </span>
-            </div>
-        </a>
-
-
-
         <a href="coaching_en.html" class="split-section coaching-section">
             <div class="background-shapes">
                 <div class="shape shape-1"></div>
@@ -1204,10 +1185,63 @@
                 <h1 class="brand-name"><span
                         style="font-family: 'Eyesome', serif; font-weight: bold; font-size: 1.43em;">Karo</span><span
                         style="font-family: 'CMU Serif', serif;">SOUL</span></h1>
-                <p class="description">Professional coaching to unlock your potential and achieve your goals</p>
+                <p class="description">Professionelles Coaching, um dein Potenzial zu entfalten und deine Ziele zu erreichen</p>
 
                 <span class="cta">
-                    Discover Coaching
+                    Coaching entdecken
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </span>
+            </div>
+        </a>
+
+
+
+        <a href="salon_de.html" class="split-section beauty-section">
+            <div class="background-shapes">
+                <div class="petal petal-1"></div>
+                <div class="petal petal-2"></div>
+                <div class="petal petal-3"></div>
+                <div class="petal petal-4"></div>
+                <div class="petal petal-5"></div>
+                <div class="petal petal-6"></div>
+                <div class="petal petal-7"></div>
+                <div class="petal petal-8"></div>
+                <div class="petal petal-9"></div>
+                <div class="petal petal-10"></div>
+                <div class="petal petal-11"></div>
+                <div class="petal petal-12"></div>
+                <div class="petal petal-13"></div>
+                <div class="petal petal-14"></div>
+                <div class="petal petal-15"></div>
+                <div class="petal petal-16"></div>
+                <div class="petal petal-17"></div>
+                <div class="petal petal-18"></div>
+                <div class="petal petal-19"></div>
+                <div class="petal petal-20"></div>
+                <div class="petal petal-21"></div>
+                <div class="petal petal-22"></div>
+                <div class="petal petal-23"></div>
+                <div class="petal petal-24"></div>
+                <div class="petal petal-25"></div>
+                <div class="petal petal-26"></div>
+                <div class="petal petal-27"></div>
+                <div class="petal petal-28"></div>
+                <div class="petal petal-29"></div>
+                <div class="petal petal-30"></div>
+            </div>
+
+            <div class="content">
+
+
+                <h1 class="brand-name"><span
+                        style="font-family: 'Eyesome', serif; font-weight: bold; font-size: 1.43em;">Karo</span><span
+                        style="font-family: 'CMU Serif', serif;">SKIN</span></h1>
+                <p class="description">Premium-Schönheitsbehandlungen für strahlende Haut und natürliche Schönheit</p>
+
+                <span class="cta">
+                    Behandlungen entdecken
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
